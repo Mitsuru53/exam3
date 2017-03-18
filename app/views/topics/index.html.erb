@@ -1,0 +1,16 @@
+
+<p><%= notice %></p>
+<h1>投稿一覧</h1>
+<%= link_to "投稿する", new_topic_path, class: 'btn btn-default' %>
+<% @topics.each do |topic| %>
+  <%= link_to topic_path(topic) do %>
+    <h4><strong><%= topic.title %></strong></h4>
+  <% end %>
+  <p><%= topic.content %></p>
+  <%= link_to "編集する",edit_topic_path(topic.id) %>
+  <%= link_to "削除する",topic_path(topic.id), method: :delete,data:{confirm: '本当に削除してもいいですか？'} %>
+<% end %>
+
+<div id="page-top-btn" class="page-top-btn">
+  <p><a class="move-page-top" id="move-page-top">▲</a></p>
+</div>
